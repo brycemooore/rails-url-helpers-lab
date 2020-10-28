@@ -5,7 +5,14 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
-  def show
+  def show     
+  end
+
+  def set_active
+    student = set_student
+    student.active = !student.active
+    student.save
+    redirect_to :action => 'show'
   end
 
   private
